@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unggah Gambar ke PDF</title>
+</head>
+<body>
+    <h1>Unggah Gambar ke PDF</h1>
+
+    <form action="/generate_pdf" method="post">
+        <label for="id_grup">ID File Skripsi:</label>
+        <input type="text" id="id_grup" name="id_grup" placeholder="Masukkan ID File Skripsi" required><br>
+
+        <label for="id_bab">ID Bab/File:</label>
+        <input type="text" id="id_bab" name="id_bab" placeholder="Masukkan ID Bab/File" required><br>
+
+        <button type="submit">Unduh Gambar</button>
+    </form>
+</body>
+</html>
