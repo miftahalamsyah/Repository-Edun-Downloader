@@ -4,19 +4,136 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unggah Gambar ke PDF</title>
+    <title>UPI Repository Downloader</title>
 </head>
 <body>
-    <h1>Unggah Gambar ke PDF</h1>
+    <h1>UPI Repository Downloader</h1>
 
-    <form action="/generate_pdf" method="post">
+    <div id="loadingModal" class="modal">
+        <div class="modal-content">
+            <p>Mohon Tunggu, sedang diproses. Jangan tutup laman situs ini. This may take a while depending on the number of pages and The UPI Edun server speed. 😅</p>
+        </div>
+    </div>
+
+    <form action="/generate_pdf" method="post" onsubmit="showLoading()">
         <label for="id_grup">ID File Skripsi:</label>
         <input type="text" id="id_grup" name="id_grup" placeholder="Masukkan ID File Skripsi" required><br>
 
         <label for="id_bab">ID Bab/File:</label>
         <input type="text" id="id_bab" name="id_bab" placeholder="Masukkan ID Bab/File" required><br>
 
-        <button type="submit">Unduh Gambar</button>
+        <button type="submit" id="submitButton">Proses</button>
     </form>
+
+    <script>
+        function showLoading() {
+            document.getElementById('loadingModal').style.display = 'block';
+            document.getElementById('submitButton').disabled = true;
+        }
+    </script>
 </body>
 </html>
+<style>
+/* CSS untuk UPI Repository Downloader */
+
+/* Warna latar belakang halaman */
+body {
+    background-color: #f0f0f0;
+}
+
+/* Judul halaman */
+h1 {
+    font-family: Arial, sans-serif;
+    font-size: 36px;
+    color: #333333;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Formulir untuk mengunduh gambar */
+form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+/* Label untuk input */
+label {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333333;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+/* Input untuk ID file skripsi dan ID bab/file */
+input {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333333;
+    padding: 10px;
+    width: 100%;
+    border: 0px solid #cccccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Placeholder untuk input */
+input::placeholder {
+    color: #999999;
+}
+
+/* Jarak antara input */
+input + input {
+    margin-top: 10px;
+}
+
+/* Tombol untuk mengunduh gambar */
+button {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0099ff;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Efek hover untuk tombol */
+button:hover {
+    background-color: #0077cc;
+}
+
+/* Efek aktif untuk tombol */
+button:active {
+    background-color: #005599;
+}
+
+/* Gaya untuk pesan loading modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+</style>

@@ -56,7 +56,7 @@ def generate_pdf():
     pdf.output(temp_pdf_path)
     temp_pdf.close()
 
-    return send_file(temp_pdf_path, download_name="Output.pdf", as_attachment=True)
+    return send_file(temp_pdf_path, download_name=f"{id_grup}_{id_bab}.pdf", as_attachment=True)
 
 if __name__ == '__main__':
     app.run(debug=True)
