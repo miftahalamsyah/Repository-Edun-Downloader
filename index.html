@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Downloader</title>
+</head>
+<body>
+    <h1>Image Downloader</h1>
+
+    <form action="/generate_pdf" method="post">
+        <label for="id_grup">ID File Skripsi:</label>
+        <input type="text" id="id_grup" name="id_grup" placeholder="Enter ID File Skripsi" required><br>
+
+        <label for="id_bab">ID Bab/File:</label>
+        <input type="text" id="id_bab" name="id_bab" placeholder="Enter ID Bab/File" required><br>
+
+        <label for="laman_awal">Laman Awal:</label>
+        <input type="number" id="laman_awal" name="laman_awal" value="0"><br>
+
+        <label for="laman_akhir">Laman Akhir:</label>
+        <input type="number" id="laman_akhir" name="laman_akhir" value="69"><br>
+
+        <button type="submit">Download Images</button>
+    </form>
+
+</body>
+</html>
