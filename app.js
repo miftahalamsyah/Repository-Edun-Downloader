@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const { PDFDocument, rgb } = require('pdf-lib');
+const { PDFDocument, rgb, StandardFonts } = require('pdf-lib');
 const fs = require('fs').promises;
 
 const app = express();
@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.post('/', async (req, res) => {
+app.post('/pdf', async (req, res) => {
     const id_grup = req.body.id_grup;
     const id_bab = req.body.id_bab;
     const laman_awal = parseInt(req.body.laman_awal) || 0;
@@ -23,6 +23,9 @@ app.post('/', async (req, res) => {
     const link = "https://reader-repository.upi.edu/index.php/display/img";
     const pdfDoc = await PDFDocument.create();
     let failedImages = 0;  // Counter for failed image requests
+
+    // Embed standard font
+    const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
     for (let laman = laman_awal; laman <= laman_akhir; laman++) {
         const url = `${link}/${id_grup}/${id_bab}/${laman}`;
@@ -34,6 +37,10 @@ app.post('/', async (req, res) => {
                 const image = await pdfDoc.embedPng(response.data);
                 const page = pdfDoc.addPage([image.width, image.height]);
                 page.drawImage(image, { x: 0, y: 0, width: image.width, height: image.height });
+
+                // Add text to make the PDF text-selectable
+                const text = `Image ${laman + 1}`;
+                page.drawText(text, { x: 50, y: 50, font });
             } else {
                 console.log(`Failed to retrieve image from ${url}`);
                 failedImages++;
