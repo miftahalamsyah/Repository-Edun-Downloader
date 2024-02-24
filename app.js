@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.post('/generate_pdf', async (req, res) => {
+app.post('/', async (req, res) => {
     const id_grup = req.body.id_grup;
     const id_bab = req.body.id_bab;
     const laman_awal = parseInt(req.body.laman_awal) || 0;
