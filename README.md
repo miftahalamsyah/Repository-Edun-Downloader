@@ -1,26 +1,15 @@
-# UPI Repository Downloader
+# Repository Downloader
 
-## Overview
+This is a simple web application for downloading images from a repository. It provides a user-friendly interface for entering the ID of the file and file section (bab), and then downloads the corresponding images in a PDF format.
 
-Skrip Python ini digunakan untuk mengunduh gambar dari UPI Repository berdasarkan input pengguna dan mengompilasinya menjadi file PDF.
+## Features
 
-## Persyaratan
+- Easy-to-use interface.
+- Shows a loading modal during the processing of the download.
 
-- Python 3.x
-- Library `requests`, `PIL`, dan `fpdf` (instal dengan perintah `pip install requests Pillow fpdf`)
+## Getting Started
 
-## Penggunaan
+### Prerequisites
 
-1. Jalankan skrip dengan mengetik `python downloader.py` di terminal.
-2. Ikuti petunjuk untuk memberikan informasi yang diperlukan:
-   - ID File Skripsi (ID file tesis)
-   - ID Bab/File (ID bab/file)
-   - Halaman awal (tekan Enter untuk memulai dari halaman pertama)
-   - Halaman akhir
-3. Skrip akan mengunduh gambar dari URL yang ditentukan dan mengkompilasikannya ke dalam file PDF bernama "Output.pdf" di direktori saat ini.
-
-## Catatan Tambahan
-
-- Jika halaman awal dikosongkan (menekan Enter), akan default ke halaman 0.
-- Skrip dapat mencetak peringatan jika gagal mengambil gambar dari URL tertentu.
-
+- Node.js installed on your machine.
+- NPM (Node Package Manager) installed on your machine.
