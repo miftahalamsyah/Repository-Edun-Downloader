@@ -4,7 +4,8 @@ const { PDFDocument, StandardFonts } = require('pdf-lib');
 const fs = require('fs').promises;
 
 const app = express();
-const port = 3000;
+app.set('view engine', 'ejs');
+const port = 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -44,15 +45,15 @@ const createPDF = async (images) => {
     return pdfDoc;
 };
 
-// app.get('/', (req, res) => {
-//     // Render HTML form for user input
-//     res.sendFile(__dirname + '/index.html');
-// });
-
 app.get('/', (req, res) => {
-    res.send('Hello World!');
-}
-);
+    // Render HTML form for user input
+    res.render('index');
+});
+
+// app.get('/', (req, res) => {
+//     res.send('Hello World!');
+// }
+// );
 
 // Route for generating PDF
 app.post('/pdf', async (req, res) => {
