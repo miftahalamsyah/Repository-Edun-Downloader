@@ -44,10 +44,15 @@ const createPDF = async (images) => {
     return pdfDoc;
 };
 
+// app.get('/', (req, res) => {
+//     // Render HTML form for user input
+//     res.sendFile(__dirname + '/index.html');
+// });
+
 app.get('/', (req, res) => {
-    // Render HTML form for user input
-    res.sendFile(__dirname + '/index.html');
-});
+    res.send('Hello World!');
+}
+);
 
 // Route for generating PDF
 app.post('/pdf', async (req, res) => {
